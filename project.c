@@ -1,22 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+int minimum,temp;
+int arr[100];
 
-void selectionSort(int arr[],int size)
+
+void selectionSort(int arr[],int elemanSayisi)
 {
     int i,j;
-    int minimum;
-    for (i=0,i<size,i++);
+    
+    for (i=0; i<elemanSayisi-1; i++);
         {
             minimum=i;
-            for(j=i;j<size;j++)
+            for(j=i+1; j<elemanSayisi; j++)
                 {
                     if(arr[j]<arr[minimum])
-                    {
+                    
                         minimum=j;
-                    }
+                    
                 }
-            int temp= arr[i];
+            
+            temp= arr[i];
             arr[i]=arr[minimum];
             arr[minimum]=temp;
 
@@ -31,19 +35,30 @@ void selectionSort(int arr[],int size)
 int main()
 {
 
-int array[50],size;
-int i;
-printf("kac elemanli");
-scanf("%d",&size);
-for (i = 0; i < size; i++)
-{
-    scanf("%d",&array[i]);
-}
-selectionSort(array,size);
-for (i = 0; i < size; i++)
-{
-    printf("%d",array[i]);
-}
+
+
+
+int secim, i;
+while(1==1)
+    {
+        printf("\n Eleman sayisi: ");
+        scanf("%d",&secim);
+
+        for(i=0; i<secim; i++)
+            {
+                printf("\n %d. sayiyi girin.", i+1);
+                scanf("%d", &arr[i]);
+            }
+
+            selectionSort(arr,secim);
+            for(i=0; i<secim; i++)
+                {
+                    printf("%d", arr[i]);
+                }
+    }
+
+
+
 
 return 0;
 
