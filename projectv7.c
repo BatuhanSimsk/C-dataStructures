@@ -48,15 +48,14 @@ void randomArrayGenerator()
 
 
 int main()
-{
-    
+{  
     for(int k=100;k<101;k++)
         {
             int x= rand() %500 +8;
 
 
             srand(time(0));
-            int myInts[x],i;
+            int myInts[10000],i;
             int sizeArray= sizeof(myInts)/sizeof(myInts[0]);
 
             for(i=0;i<sizeArray;i++)
@@ -69,7 +68,7 @@ int main()
                     printf("Element #%d: %d\n", i,myInts[i]);
                 }
 
-            system("PAUSE");
+            
 
 
 
@@ -79,15 +78,29 @@ int main()
     
     int size= sizeArray;
 
-    selectionSort(myInts,size); 
+        clock_t start, end;
+        double cpu_time_used;
+        start= clock();
+
+        selectionSort(myInts,size);
+
+        end= clock();
+        cpu_time_used= ((double) (end-start)) /     CLOCKS_PER_SEC;
+       
+         printf("Gecen sure = %.9f saniyedir", cpu_time_used);
+    
+    
+    
+    
 
     printf("\n");
 
-    for(int i=0;i<size;i++)
+/*    for(int i=0;i<size;i++)
         {
             printf("%d \n",myInts[i]);
         }
-        }
+*/
+}
     
     
 /*    
@@ -112,6 +125,18 @@ int main()
         }
 */
 
+
+
+/*
+    clock_t begin = clock();
+
+    selectionSort(myInts,size);
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    
+    printf("%f time: ", time_spent);
+*/
 
 
 }
