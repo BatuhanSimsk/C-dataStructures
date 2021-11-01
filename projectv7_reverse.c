@@ -21,6 +21,29 @@ void selectionSort(int arr[],int size)
             arr[min]=temp;
         }
 }
+        
+void selectionSortReverse(int arr[],int size)
+{
+    int length = sizeof(arr)/sizeof(arr[0]);
+    int temp = 0; 
+    
+    for (int i = 0; i < length; i++) {     
+        for (int j = i+1; j < length; j++) {     
+            if(arr[i] < arr[j]) {    
+                temp = arr[i];    
+                arr[i] = arr[j];    
+                arr[j] = temp;    
+            }     
+        }     
+    }    
+    printf("\n");    
+    //Displaying elements of array after sorting    
+    printf("Elements of array sorted in descending order: \n");    
+    for (int i = 0; i < length; i++) {     
+        printf("%d ", arr[i]);    
+    }    
+}
+
 
 
 
@@ -44,7 +67,7 @@ int main()
     //int elemanSayisi[1000];
     
     
-    int elemanSayisi[]={1000};
+    int elemanSayisi[]={10000};
             
             
             
@@ -63,11 +86,11 @@ int main()
                     myInts[i]=rand() % 10000 + 1;
                 }
         
-            for(int i=0; i<sizeArray; i++)
+        /*    for(int i=0; i<sizeArray; i++)
                 {
                     printf("Element #%d: %d\n", i,myInts[i]);
                 }
-        
+        */
             
         int size= sizeArray;
 
@@ -77,17 +100,17 @@ int main()
         
         start= clock();
 
-        selectionSort(myInts,size);
+        selectionSortReverse(myInts,size);
 
         end= clock();
         
         cpu_time_used= ((double) (end-start)) /     CLOCKS_PER_SEC;
 
-    /* for(int i=0; i<sizeArray; i++)
+    for(int i=0; i<sizeArray; i++)
                 {
                     printf("Sorted Element #%d: %d\n", i,myInts[i]);
                 }
-    */
+    
         
         
         
